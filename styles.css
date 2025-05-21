@@ -129,7 +129,7 @@ section {
     display: flex;
     overflow-x: auto;
     padding: 20px 0;
-    background: linear-gradient(90deg, #009246, #ffffff, #ce2b2b);
+    background: linear-gradient(90deg, #003087, #005b99);
     border-radius: 10px;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -219,9 +219,16 @@ footer {
     text-align: center;
     padding: 30px;
     background: linear-gradient(90deg, #009246, #ffffff, #ce2b2b);
-    color: white;
     font-size: 18px;
     animation: fadeIn 1.5s ease-in;
+}
+
+footer p {
+    background: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #ffffff;
 }
 
 @media (max-width: 768px) {
