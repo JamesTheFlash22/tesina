@@ -4,34 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olimpiadi: Unione dei Popoli</title>
-    <!-- Libreria Flag Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
-    <!-- Libreria Leaflet per la mappa -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- Libreria Chart.js per il grafico -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- File CSS locale -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <h1>Olimpiadi: Unione dei Popoli</h1>
     </header>
-
-    <!-- Sezione Bandiere -->
     <section id="bandiere">
         <h2>Paesi Partecipanti</h2>
         <div class="container" id="bandiere-container"></div>
         <button id="mostra-altro">Mostra altro</button>
     </section>
-
-    <!-- Sezione Mappa -->
     <section id="mappa">
         <h2>Luoghi delle Olimpiadi Moderne</h2>
         <div id="mappa-olimpiadi" style="height: 400px;"></div>
     </section>
-
-    <!-- Sezione Timeline -->
     <section id="timeline">
         <h2>Timeline delle Olimpiadi Moderne</h2>
         <div class="timeline-container">
@@ -67,14 +57,10 @@
             <div class="timeline-item" data-year="2024"><span>2024 - Parigi</span></div>
         </div>
     </section>
-
-    <!-- Sezione Grafico -->
     <section id="grafico">
         <h2>Numero di Paesi Partecipanti per Anno</h2>
         <canvas id="grafico-partecipanti" width="800" height="400"></canvas>
     </section>
-
-    <!-- Sezione Frasi Simboliche -->
     <section id="frasi">
         <h2>Unione tra i Popoli</h2>
         <div class="frasi-container">
@@ -90,20 +76,14 @@
             <p>বাংলা: খেলাধুলা সীমানার বাইরে মানুষকে একত্রিত করে।</p>
         </div>
     </section>
-
-    <!-- Sezione Contatore -->
     <section id="contatore">
         <h2>Le Olimpiadi Moderne</h2>
         <p>Anni di storia: <span id="anni-olimpiadi">0</span></p>
         <p>Nazioni partecipanti (2024): <span id="nazioni-partecipanti">0</span></p>
     </section>
-
-    <!-- Messaggio Finale -->
     <footer>
         <p>Attraverso lo sport, costruiamo ponti tra i popoli.</p>
     </footer>
-
-    <!-- Script per Leaflet e JavaScript locale -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
