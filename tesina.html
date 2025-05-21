@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olimpiadi: Unione dei Popoli</title>
+    <!-- Libreria Flag Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
+    <!-- Libreria Leaflet per la mappa -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Libreria Chart.js per il grafico -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- File CSS locale -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Olimpiadi: Unione dei Popoli</h1>
+    </header>
+
+    <!-- Sezione Bandiere -->
+    <section id="bandiere">
+        <h2>Paesi Partecipanti</h2>
+        <div class="container" id="bandiere-container"></div>
+        <button id="mostra-altro">Mostra altro</button>
+    </section>
+
+    <!-- Sezione Mappa -->
+    <section id="mappa">
+        <h2>Luoghi delle Olimpiadi Moderne</h2>
+        <div id="mappa-olimpiadi" style="height: 400px;"></div>
+    </section>
+
+    <!-- Sezione Timeline -->
+    <section id="timeline">
+        <h2>Timeline delle Olimpiadi Moderne</h2>
+        <div class="timeline-container">
+            <div class="timeline-item" data-year="1896"><span>1896 - Atene</span></div>
+            <div class="timeline-item" data-year="1900"><span>1900 - Parigi</span></div>
+            <div class="timeline-item" data-year="1904"><span>1904 - St. Louis</span></div>
+            <div class="timeline-item" data-year="1908"><span>1908 - Londra</span></div>
+            <div class="timeline-item" data-year="1912"><span>1912 - Stoccolma</span></div>
+            <div class="timeline-item" data-year="1920"><span>1920 - Anversa</span></div>
+            <div class="timeline-item" data-year="1924"><span>1924 - Parigi</span></div>
+            <div class="timeline-item" data-year="1928"><span>1928 - Amsterdam</span></div>
+            <div class="timeline-item" data-year="1932"><span>1932 - Los Angeles</span></div>
+            <div class="timeline-item" data-year="1936"><span>1936 - Berlino</span></div>
+            <div class="timeline-item" data-year="1948"><span>1948 - Londra</span></div>
+            <div class="timeline-item" data-year="1952"><span>1952 - Helsinki</span></div>
+            <div class="timeline-item" data-year="1956"><span>1956 - Melbourne</span></div>
+            <div class="timeline-item" data-year="1960"><span>1960 - Roma</span></div>
+            <div class="timeline-item" data-year="1964"><span>1964 - Tokyo</span></div>
+            <div class="timeline-item" data-year="1968"><span>1968 - Città del Messico</span></div>
+            <div class="timeline-item" data-year="1972"><span>1972 - Monaco</span></div>
+            <div class="timeline-item" data-year="1976"><span>1976 - Montreal</span></div>
+            <div class="timeline-item" data-year="1980"><span>1980 - Mosca</span></div>
+            <div class="timeline-item" data-year="1984"><span>1984 - Los Angeles</span></div>
+            <div class="timeline-item" data-year="1988"><span>1988 - Seul</span></div>
+            <div class="timeline-item" data-year="1992"><span>1992 - Barcellona</span></div>
+            <div class="timeline-item" data-year="1996"><span>1996 - Atlanta</span></div>
+            <div class="timeline-item" data-year="2000"><span>2000 - Sydney</span></div>
+            <div class="timeline-item" data-year="2004"><span>2004 - Atene</span></div>
+            <div class="timeline-item" data-year="2008"><span>2008 - Pechino</span></div>
+            <div class="timeline-item" data-year="2012"><span>2012 - Londra</span></div>
+            <div class="timeline-item" data-year="2016"><span>2016 - Rio de Janeiro</span></div>
+            <div class="timeline-item" data-year="2020"><span>2020 - Tokyo</span></div>
+            <div class="timeline-item" data-year="2024"><span>2024 - Parigi</span></div>
+        </div>
+    </section>
+
+    <!-- Sezione Grafico -->
+    <section id="grafico">
+        <h2>Numero di Paesi Partecipanti per Anno</h2>
+        <canvas id="grafico-partecipanti" width="800" height="400"></canvas>
+    </section>
+
+    <!-- Sezione Frasi Simboliche -->
+    <section id="frasi">
+        <h2>Unione tra i Popoli</h2>
+        <div class="frasi-container">
+            <p>Italiano: Lo sport unisce i popoli oltre ogni confine.</p>
+            <p>English: Sport unites people beyond all borders.</p>
+            <p>Español: El deporte une a los pueblos más allá de las fronteras.</p>
+            <p>中文: 体育跨越国界，连接人民。</p>
+            <p>हिन्दी: खेल सीमाओं के पार लोगों को एकजुट करता है।</p>
+            <p>العربية: الرياضة توحد الشعوب عبر الحدود.</p>
+            <p>Français: Le sport unit les peuples au-delà des frontières.</p>
+            <p>Русский: Спорт объединяет народы за пределами границ.</p>
+            <p>Português: O esporte une os povos além das fronteiras.</p>
+            <p>বাংলা: খেলাধুলা সীমানার বাইরে মানুষকে একত্রিত করে।</p>
+        </div>
+    </section>
+
+    <!-- Sezione Contatore -->
+    <section id="contatore">
+        <h2>Le Olimpiadi Moderne</h2>
+        <p>Anni di storia: <span id="anni-olimpiadi">0</span></p>
+        <p>Nazioni partecipanti (2024): <span id="nazioni-partecipanti">0</span></p>
+    </section>
+
+    <!-- Messaggio Finale -->
+    <footer>
+        <p>Attraverso lo sport, costruiamo ponti tra i popoli.</p>
+    </footer>
+
+    <!-- Script per Leaflet e JavaScript locale -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
