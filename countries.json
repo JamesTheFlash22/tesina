@@ -199,7 +199,6 @@
     {"codice": "SOM", "nome": "Somalia"},
     {"codice": "ESP", "nome": "Spagna"},
     {"codice": "ZZX", "nome": "Squadra Mista", "placeholder": true},
-    {"codice": "ROT", "nome": "Squadra Olimpica Rifugiati", "flag": "un"},
     {"codice": "SRI", "nome": "Sri Lanka"},
     {"codice": "USA", "nome": "Stati Uniti"},
     {"codice": "RSA", "nome": "Sudafrica"},
