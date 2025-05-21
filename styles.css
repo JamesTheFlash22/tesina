@@ -16,7 +16,6 @@ header {
     padding: 30px;
     background: linear-gradient(90deg, #009246, #ffffff, #ce2b2b);
     color: white;
-    animation: fadeIn 1.5s ease-in;
 }
 
 h1, h2 {
@@ -32,73 +31,219 @@ section {
     background: white;
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    animation: fadeInUp 1s ease-in;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0.3; filter: blur(5px); }
+    to { opacity: 1; filter: blur(0); }
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0.3; transform: translateY(40px); filter: blur(5px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes fadeInLeft {
+    from { opacity: 0.3; transform: translateX(-40px); filter: blur(5px); }
+    to { opacity: 1; transform: translateX(0); filter: blur(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0.3; transform: translateX(40px); filter: blur(5px); }
+    to { opacity: 1; transform: translateX(0); filter: blur(0); }
+}
+
+@keyframes rotateIn {
+    from { opacity: 0.3; transform: scale(0.8) rotate(-10deg); filter: blur(5px); }
+    to { opacity: 1; transform: scale(1) rotate(0); filter: blur(0); }
 }
 
 @keyframes pulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    50% { transform: scale(1.15); }
     100% { transform: scale(1); }
 }
 
-@keyframes slideIn {
-    from { transform: translateX(-50px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+.animate-fadeIn {
+    animation: fadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#bandiere .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 15px;
-    justify-items: center;
+.animate-fadeInUp {
+    animation: fadeInUp 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.bandiera {
-    text-align: center;
-    padding: 10px;
+.animate-fadeInLeft {
+    animation: fadeInLeft 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-fadeInRight {
+    animation: fadeInRight 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-rotateIn {
+    animation: rotateIn 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#mappa-olimpiadi {
+    border-radius: 10px;
+    border: 2px solid #009246;
+}
+
+.popup-flag {
+    width: 40px;
+    height: 26px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.timeline-filter {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.timeline-filter label {
+    font-weight: bold;
+    color: #333;
+}
+
+.timeline-filter select {
+    padding: 8px;
+    border: 2px solid #009246;
+    border-radius: 5px;
     background: #f9f9f9;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
-.bandiera:hover {
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: white;
+    border: 4px solid #009246;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.container.left {
+    left: 0;
+    text-align: right;
+}
+
+.container.right {
+    left: 50%;
+    text-align: left;
+}
+
+.container.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+.container.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+.container.right::after {
+    left: -16px;
+}
+
+.content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.container:hover .content {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    animation: pulse 1.5s infinite;
 }
 
-.bandiera span.fi {
-    display: inline-block;
-    width: 60px;
-    height: 40px;
+.container.active .content {
+    border: 2px solid #009246;
+    animation: pulse 1s ease-in-out;
 }
 
-.bandiera .ain-placeholder {
-    width: 60px;
-    height: 40px;
-    background: #e0e0e0;
-    display: inline-block;
-    line-height: 40px;
-    text-align: center;
-    font-size: 12px;
+.timeline-flag {
+    width: 40px;
+    height: 26px;
+    object-fit: contain;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.content h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
     color: #333;
 }
 
-.bandiera .nome {
-    display: block;
-    margin-top: 8px;
+.content p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.tooltip {
+    position: fixed;
+    background: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
     font-size: 12px;
-    color: #333;
+    transform: translateX(-50%);
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 #mostra-altro {
@@ -110,80 +255,12 @@ section {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
     transition: background 0.3s ease;
 }
 
 #mostra-altro:hover {
-    background: #ce2b2b;
-    color: white;
-}
-
-#mappa-olimpiadi {
-    border-radius: 10px;
-    border: 2px solid #009246;
-    animation: fadeIn 1s ease-in;
-}
-
-.timeline-container {
-    position: relative;
-    display: flex;
-    overflow-x: auto;
-    padding: 20px 0;
-    background: linear-gradient(90deg, #003087, #005b99);
-    border-radius: 10px;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.timeline-item {
-    flex: 0 0 120px;
-    text-align: center;
-    position: relative;
-    margin: 0 15px;
-    animation: slideIn 0.8s ease-in;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    width: 12px;
-    height: 12px;
-    background: #ffffff;
-    border-radius: 50%;
-    transform: translateX(-50%);
-    transition: transform 0.3s ease;
-}
-
-.timeline-item:hover::before {
-    transform: translateX(-50%) scale(1.3);
-}
-
-.timeline-item::after {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: 50%;
-    width: 100%;
-    height: 4px;
-    background: #ffffff;
-    z-index: -1;
-}
-
-.timeline-item span {
-    display: block;
-    padding: 12px;
-    background: white;
-    border-radius: 8px;
-    font-size: 14px;
-    color: #009246;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.timeline-item:hover span {
-    transform: translateY(-5px);
-    background: #e6f0fa;
+    background: #007a3d;
 }
 
 .frasi-container p {
@@ -208,7 +285,6 @@ section {
     font-weight: bold;
     font-size: 24px;
     color: #009246;
-    animation: pulse 2s infinite;
 }
 
 #grafico {
@@ -220,7 +296,6 @@ footer {
     padding: 30px;
     background: linear-gradient(90deg, #009246, #ffffff, #ce2b2b);
     font-size: 18px;
-    animation: fadeIn 1.5s ease-in;
 }
 
 footer p {
@@ -231,16 +306,44 @@ footer p {
     color: #ffffff;
 }
 
-@media (max-width: 768px) {
-    .timeline-item {
-        flex: 0 0 100px;
-        margin: 0 10px;
+@media screen and (max-width: 600px) {
+    .timeline::after {
+        left: 31px;
     }
-    .bandiera {
-        width: 80px;
+    .container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+        text-align: left;
     }
-    .bandiera span.fi, .bandiera .ain-placeholder {
-        width: 50px;
-        height: 33px;
+    .container::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+    }
+    .container.left::after, .container.right::after {
+        left: 15px;
+    }
+    .container.right {
+        left: 0%;
+    }
+    .timeline-flag {
+        width: 32px;
+        height: 21px;
+    }
+    .popup-flag {
+        width: 32px;
+        height: 21px;
+    }
+    .content h2 {
+        font-size: 16px;
+    }
+    .content p {
+        font-size: 14px;
+    }
+    .tooltip {
+        font-size: 10px;
+        padding: 8px;
     }
 }
