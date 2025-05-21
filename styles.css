@@ -14,14 +14,14 @@ body {
 header {
     text-align: center;
     padding: 30px;
-    background: linear-gradient(90deg, #003087, #ffd700);
+    background: linear-gradient(90deg, #009246, #ffffff, #ce2b2b);
     color: white;
     animation: fadeIn 1.5s ease-in;
 }
 
 h1, h2 {
     margin-bottom: 20px;
-    color: #003087;
+    color: #009246;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -35,7 +35,6 @@ section {
     animation: fadeInUp 1s ease-in;
 }
 
-/* Animazioni fantastiche */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -57,7 +56,6 @@ section {
     to { transform: translateX(0); opacity: 1; }
 }
 
-/* Sezione Bandiere */
 #bandiere .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -107,7 +105,7 @@ section {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
-    background: #003087;
+    background: #009246;
     color: white;
     border: none;
     border-radius: 5px;
@@ -116,24 +114,22 @@ section {
 }
 
 #mostra-altro:hover {
-    background: #ffd700;
-    color: #003087;
+    background: #ce2b2b;
+    color: white;
 }
 
-/* Sezione Mappa */
 #mappa-olimpiadi {
     border-radius: 10px;
-    border: 2px solid #003087;
+    border: 2px solid #009246;
     animation: fadeIn 1s ease-in;
 }
 
-/* Sezione Timeline */
 .timeline-container {
     position: relative;
     display: flex;
     overflow-x: auto;
     padding: 20px 0;
-    background: linear-gradient(90deg, #003087, #005b99);
+    background: linear-gradient(90deg, #009246, #ffffff, #ce2b2b);
     border-radius: 10px;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -153,7 +149,7 @@ section {
     left: 50%;
     width: 12px;
     height: 12px;
-    background: #ffd700;
+    background: #ffffff;
     border-radius: 50%;
     transform: translateX(-50%);
     transition: transform 0.3s ease;
@@ -170,7 +166,7 @@ section {
     left: 50%;
     width: 100%;
     height: 4px;
-    background: #ffd700;
+    background: #ffffff;
     z-index: -1;
 }
 
@@ -180,7 +176,7 @@ section {
     background: white;
     border-radius: 8px;
     font-size: 14px;
-    color: #003087;
+    color: #009246;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, background 0.3s ease;
 }
@@ -190,12 +186,11 @@ section {
     background: #e6f0fa;
 }
 
-/* Sezione Frasi */
 .frasi-container p {
     margin: 10px 0;
     padding: 15px;
     background: #f9f9f9;
-    border-left: 5px solid #003087;
+    border-left: 5px solid #009246;
     border-radius: 5px;
     transition: transform 0.3s ease, background 0.3s ease;
 }
@@ -205,7 +200,6 @@ section {
     background: #e6f0fa;
 }
 
-/* Sezione Contatore */
 #contatore {
     text-align: center;
 }
@@ -213,26 +207,23 @@ section {
 #contatore span {
     font-weight: bold;
     font-size: 24px;
-    color: #003087;
+    color: #009246;
     animation: pulse 2s infinite;
 }
 
-/* Sezione Grafico */
 #grafico {
     text-align: center;
 }
 
-/* Footer */
 footer {
     text-align: center;
     padding: 30px;
-    background: linear-gradient(90deg, #003087, #005b99);
+    background: linear-gradient(90deg, #009246, #ffffff, #ce2b2b);
     color: white;
     font-size: 18px;
     animation: fadeIn 1.5s ease-in;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .timeline-item {
         flex: 0 0 100px;
