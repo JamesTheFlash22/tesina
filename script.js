@@ -1,4 +1,3 @@
-// Dati per la mappa (luoghi delle Olimpiadi estive)
 const luoghiOlimpiadi = [
     { anno: 1896, citta: "Atene", lat: 37.9838, lng: 23.7275 },
     { anno: 1900, citta: "Parigi", lat: 48.8566, lng: 2.3522 },
@@ -32,7 +31,6 @@ const luoghiOlimpiadi = [
     { anno: 2024, citta: "Parigi", lat: 48.8566, lng: 2.3522 }
 ];
 
-// Dati per il grafico (numero di paesi partecipanti per anno)
 const datiPartecipanti = [
     { anno: 1896, paesi: 14 },
     { anno: 1900, paesi: 24 },
@@ -66,7 +64,6 @@ const datiPartecipanti = [
     { anno: 2024, paesi: 206 }
 ];
 
-// Carica i paesi da countries.json
 let paesi = [];
 let currentIndex = 0;
 const paesiPerCaricamento = 20;
@@ -91,7 +88,7 @@ function caricaPaesi() {
             div.innerHTML = `<div class="ain-placeholder">${paese.codice}</div><span class="nome">${paese.nome}</span>`;
         } else {
             const codiceBandiera = paese.flag || paese.codice.toLowerCase();
-            div.innerHTML = `<span class="fi fi-${codiceBandiera}"></span><span class="nome">${paese.nome}</span>`;
+            div.innerHTML = `<span class="fi fi-${codiceBandiera} fis"></span><span class="nome">${paese.nome}</span>`;
         }
         container.appendChild(div);
     }
@@ -101,7 +98,6 @@ function caricaPaesi() {
     }
 }
 
-// Mappa interattiva con Leaflet
 const mappa = L.map("mappa-olimpiadi").setView([20, 0], 2);
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -112,7 +108,6 @@ luoghiOlimpiadi.forEach(luogo => {
         .bindPopup(`${luogo.anno} - ${luogo.citta}`);
 });
 
-// Grafico con Chart.js
 const ctx = document.getElementById("grafico-partecipanti").getContext("2d");
 new Chart(ctx, {
     type: "line",
@@ -121,8 +116,8 @@ new Chart(ctx, {
         datasets: [{
             label: "Paesi partecipanti",
             data: datiPartecipanti.map(d => d.paesi),
-            borderColor: "#003087",
-            backgroundColor: "rgba(0, 48, 135, 0.2)",
+            borderColor: "#009246",
+            backgroundColor: "rgba(0, 146, 70, 0.2)",
             fill: true,
             tension: 0.4
         }]
@@ -135,7 +130,6 @@ new Chart(ctx, {
     }
 });
 
-// Contatore animato
 const anniOlimpiadi = document.getElementById("anni-olimpiadi");
 let anni = 0;
 const targetAnni = 2025 - 1896;
