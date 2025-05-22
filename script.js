@@ -1,168 +1,244 @@
-// DATI OLIMPIADI (con 2024 Parigi aggiunto)
-const olympicsData = [
-  { year: 1896, city: "Atene", country: "Grecia", participants: 241, coords: [37.9838, 23.7275] },
-  { year: 1900, city: "Parigi", country: "Francia", participants: 997, coords: [48.8566, 2.3522] },
-  { year: 1904, city: "St. Louis", country: "USA", participants: 651, coords: [38.6270, -90.1994] },
-  { year: 1908, city: "Londra", country: "Regno Unito", participants: 2008, coords: [51.5074, -0.1278] },
-  { year: 1912, city: "Stoccolma", country: "Svezia", participants: 2403, coords: [59.3293, 18.0686] },
-  { year: 1920, city: "Anversa", country: "Belgio", participants: 2620, coords: [51.2194, 4.4025] },
-  { year: 1924, city: "Parigi", country: "Francia", participants: 3081, coords: [48.8566, 2.3522] },
-  { year: 1928, city: "Amsterdam", country: "Paesi Bassi", participants: 2884, coords: [52.3676, 4.9041] },
-  { year: 1932, city: "Los Angeles", country: "USA", participants: 1337, coords: [34.0522, -118.2437] },
-  { year: 1936, city: "Berlino", country: "Germania", participants: 3964, coords: [52.5200, 13.4050] },
-  { year: 1948, city: "Londra", country: "Regno Unito", participants: 4000, coords: [51.5074, -0.1278] },
-  { year: 1952, city: "Helsinki", country: "Finlandia", participants: 4959, coords: [60.1699, 24.9384] },
-  { year: 1956, city: "Melbourne", country: "Australia", participants: 3344, coords: [-37.8136, 144.9631] },
-  { year: 1960, city: "Roma", country: "Italia", participants: 5331, coords: [41.9028, 12.4964] },
-  { year: 1964, city: "Tokyo", country: "Giappone", participants: 5228, coords: [35.6762, 139.6503] },
-  { year: 1968, city: "Città del Messico", country: "Messico", participants: 5581, coords: [19.4326, -99.1332] },
-  { year: 1972, city: "Monaco", country: "Germania", participants: 7138, coords: [48.1351, 11.5820] },
-  { year: 1976, city: "Montreal", country: "Canada", participants: 6024, coords: [45.5017, -73.5673] },
-  { year: 1980, city: "Mosca", country: "URSS", participants: 5407, coords: [55.7558, 37.6173] },
-  { year: 1984, city: "Los Angeles", country: "USA", participants: 6829, coords: [34.0522, -118.2437] },
-  { year: 1988, city: "Seul", country: "Corea del Sud", participants: 8394, coords: [37.5665, 126.9780] },
-  { year: 1992, city: "Barcellona", country: "Spagna", participants: 9356, coords: [41.3851, 2.1734] },
-  { year: 1996, city: "Atlanta", country: "USA", participants: 10351, coords: [33.7490, -84.3880] },
-  { year: 2000, city: "Sydney", country: "Australia", participants: 10665, coords: [-33.8688, 151.2093] },
-  { year: 2004, city: "Atene", country: "Grecia", participants: 10624, coords: [37.9838, 23.7275] },
-  { year: 2008, city: "Pechino", country: "Cina", participants: 11028, coords: [39.9042, 116.4074] },
-  { year: 2012, city: "Londra", country: "Regno Unito", participants: 10768, coords: [51.5074, -0.1278] },
-  { year: 2016, city: "Rio de Janeiro", country: "Brasile", participants: 11238, coords: [-22.9068, -43.1729] },
-  { year: 2020, city: "Tokyo", country: "Giappone", participants: 11329, coords: [35.6762, 139.6503] },
-  { year: 2024, city: "Parigi", country: "Francia", participants: 0, coords: [48.8566, 2.3522] }
+const luoghiOlimpiadi = [
+    { anno: 1896, citta: "Atene", lat: 37.9838, lng: 23.7275, paese: "GR", flagUrl: "https://www.worldometers.info/img/flags/gr-flag.gif" },
+    { anno: 1900, citta: "Parigi", lat: 48.8566, lng: 2.3522, paese: "FR", flagUrl: "https://www.worldometers.info/img/flags/fr-flag.gif" },
+    { anno: 1904, citta: "St. Louis", lat: 38.6270, lng: -90.1994, paese: "US", flagUrl: "https://www.worldometers.info/img/flags/us-flag.gif" },
+    { anno: 1908, citta: "Londra", lat: 51.5074, lng: -0.1278, paese: "GB", flagUrl: "https://www.worldometers.info/img/flags/gb-flag.gif" },
+    { anno: 1912, citta: "Stoccolma", lat: 59.3293, lng: 18.0686, paese: "SE", flagUrl: "https://www.worldometers.info/img/flags/se-flag.gif" },
+    { anno: 1920, citta: "Anversa", lat: 51.2213, lng: 4.4051, paese: "BE", flagUrl: "https://www.worldometers.info/img/flags/be-flag.gif" },
+    { anno: 1924, citta: "Parigi", lat: 48.8566, lng: 2.3522, paese: "FR", flagUrl: "https://www.worldometers.info/img/flags/fr-flag.gif" },
+    { anno: 1928, citta: "Amsterdam", lat: 52.3676, lng: 4.9041, paese: "NL", flagUrl: "https://www.worldometers.info/img/flags/nl-flag.gif" },
+    { anno: 1932, citta: "Los Angeles", lat: 34.0522, lng: -118.2437, paese: "US", flagUrl: "https://www.worldometers.info/img/flags/us-flag.gif" },
+    { anno: 1936, citta: "Berlino", lat: 52.5200, lng: 13.4050, paese: "DE", flagUrl: "https://www.worldometers.info/img/flags/de-flag.gif" },
+    { anno: 1948, citta: "Londra", lat: 51.5074, lng: -0.1278, paese: "GB", flagUrl: "https://www.worldometers.info/img/flags/gb-flag.gif" },
+    { anno: 1952, citta: "Helsinki", lat: 60.1699, lng: 24.9384, paese: "FI", flagUrl: "https://www.worldometers.info/img/flags/fi-flag.gif" },
+    { anno: 1956, citta: "Melbourne", lat: -37.8136, lng: 144.9631, paese: "AU", flagUrl: "https://www.worldometers.info/img/flags/au-flag.gif" },
+    { anno: 1960, citta: "Roma", lat: 41.9028, lng: 12.4964, paese: "IT", flagUrl: "https://www.worldometers.info/img/flags/it-flag.gif" },
+    { anno: 1964, citta: "Tokyo", lat: 35.6762, lng: 139.6503, paese: "JP", flagUrl: "https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg" },
+    { anno: 1968, citta: "Città del Messico", lat: 19.4326, lng: -99.1332, paese: "MX", flagUrl: "https://www.worldometers.info/img/flags/mx-flag.gif" },
+    { anno: 1972, citta: "Monaco", lat: 48.1351, lng: 11.5820, paese: "DE", flagUrl: "https://www.worldometers.info/img/flags/de-flag.gif" },
+    { anno: 1976, citta: "Montreal", lat: 45.5017, lng: -73.5673, paese: "CA", flagUrl: "https://www.worldometers.info/img/flags/ca-flag.gif" },
+    { anno: 1980, citta: "Mosca", lat: 55.7558, lng: 37.6173, paese: "RU", flagUrl: "https://www.worldometers.info/img/flags/ru-flag.gif" },
+    { anno: 1984, citta: "Los Angeles", lat: 34.0522, lng: -118.2437, paese: "US", flagUrl: "https://www.worldometers.info/img/flags/us-flag.gif" },
+    { anno: 1988, citta: "Seul", lat: 37.5665, lng: 126.9780, paese: "KR", flagUrl: "https://www.worldometers.info/img/flags/kr-flag.gif" },
+    { anno: 1992, citta: "Barcellona", lat: 41.3851, lng: 2.1734, paese: "ES", flagUrl: "https://www.worldometers.info/img/flags/es-flag.gif" },
+    { anno: 1996, citta: "Atlanta", lat: 33.7489, lng: -84.3879, paese: "US", flagUrl: "https://www.worldometers.info/img/flags/us-flag.gif" },
+    { anno: 2000, citta: "Sydney", lat: -33.8688, lng: 151.2093, paese: "AU", flagUrl: "https://www.worldometers.info/img/flags/au-flag.gif" },
+    { anno: 2004, citta: "Atene", lat: 37.9838, lng: 23.7275, paese: "GR", flagUrl: "https://www.worldometers.info/img/flags/gr-flag.gif" },
+    { anno: 2008, citta: "Pechino", lat: 39.9042, lng: 116.4074, paese: "CN", flagUrl: "https://www.worldometers.info/img/flags/cn-flag.gif" },
+    { anno: 2012, citta: "Londra", lat: 51.5074, lng: -0.1278, paese: "GB", flagUrl: "https://www.worldometers.info/img/flags/gb-flag.gif" },
+    { anno: 2016, citta: "Rio de Janeiro", lat: -22.9068, lng: -43.1729, paese: "BR", flagUrl: "https://www.worldometers.info/img/flags/br-flag.gif" },
+    { anno: 2020, citta: "Tokyo", lat: 35.6762, lng: 139.6503, paese: "JP", flagUrl: "https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg" },
+    { anno: 2024, citta: "Parigi", lat: 48.8566, lng: 2.3522, paese: "FR", flagUrl: "https://www.worldometers.info/img/flags/fr-flag.gif" }
 ];
 
-// CITAZIONI
-const quotes = [
-  "L'importante non è vincere ma partecipare. - Pierre de Coubertin",
-  "Il più grande spettacolo dopo il Big Bang. - Jesse Owens",
-  "Lo sport ha il potere di cambiare il mondo. - Nelson Mandela",
+const datiPartecipanti = [
+    { anno: 1896, paesi: 14 },
+    { anno: 1900, paesi: 24 },
+    { anno: 1904, paesi: 12 },
+    { anno: 1908, paesi: 22 },
+    { anno: 1912, paesi: 28 },
+    { anno: 1920, paesi: 29 },
+    { anno: 1924, paesi: 44 },
+    { anno: 1928, paesi: 46 },
+    { anno: 1932, paesi: 37 },
+    { anno: 1936, paesi: 49 },
+    { anno: 1948, paesi: 59 },
+    { anno: 1952, paesi: 69 },
+    { anno: 1956, paesi: 72 },
+    { anno: 1960, paesi: 83 },
+    { anno: 1964, paesi: 93 },
+    { anno: 1968, paesi: 112 },
+    { anno: 1972, paesi: 121 },
+    { anno: 1976, paesi: 92 },
+    { anno: 1980, paesi: 80 },
+    { anno: 1984, paesi: 140 },
+    { anno: 1988, paesi: 159 },
+    { anno: 1992, paesi: 169 },
+    { anno: 1996, paesi: 197 },
+    { anno: 2000, paesi: 199 },
+    { anno: 2004, paesi: 201 },
+    { anno: 2008, paesi: 204 },
+    { anno: 2012, paesi: 204 },
+    { anno: 2016, paesi: 207 },
+    { anno: 2020, paesi: 206 },
+    { anno: 2024, paesi: 206 }
 ];
 
-// CURIOSITÀ
-const curiosities = [
-  "Le Olimpiadi moderne sono iniziate nel 1896 ad Atene.",
-  "Nel 1936, le Olimpiadi di Berlino furono usate come propaganda nazista.",
-  "La torcia olimpica simboleggia il legame tra Olimpia e la città ospitante.",
-  "L’edizione 2024 si terrà a Parigi, 100 anni dopo l’ultima volta.",
-];
+const mappa = L.map("mappa-olimpiadi").setView([20, 0], 2);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(mappa);
 
-// ------- UI TIMELINE -----------
-const timelineDiv = document.getElementById("timeline");
-const toggleBtn = document.getElementById("toggleTimelineBtn");
+const markers = [];
+luoghiOlimpiadi.forEach(luogo => {
+    const marker = L.marker([luogo.lat, luogo.lng])
+        .addTo(mappa)
+        .bindPopup(`
+            <div>
+                <h3>${luogo.anno} - ${luogo.citta}</h3>
+                <img src="${luogo.flagUrl}" alt="Bandiera ${luogo.citta}" class="popup-flag">
+            </div>
+        `);
+    markers.push({ anno: luogo.anno, marker });
+});
 
-let visibleCount = 10;
-
-function mostraTimeline() {
-  timelineDiv.innerHTML = "";
-  for (let i = 0; i < Math.min(visibleCount, olympicsData.length); i++) {
-    const item = olympicsData[i];
-    const div = document.createElement("div");
-    div.classList.add("timeline-item", "visible");
-    div.innerHTML = `<h3>${item.year} - ${item.city}, ${item.country}</h3>
-      <p>Partecipanti: ${item.participants}</p>`;
-    timelineDiv.appendChild(div);
-  }
-}
-
-toggleBtn.onclick = () => {
-  if (visibleCount >= olympicsData.length) {
-    visibleCount = 10;
-    toggleBtn.textContent = "Mostra altri";
-  } else {
-    visibleCount = olympicsData.length;
-    toggleBtn.textContent = "Mostra meno";
-  }
-  mostraTimeline();
-};
-
-mostraTimeline();
-
-// --------- MAPPA --------------
-let map;
-function initMappa() {
-  map = L.map("map").setView([20, 0], 2);
-
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 6,
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  }).addTo(map);
-
-  // marker per ogni Olimpiade
-  olympicsData.forEach((olymp) => {
-    L.marker(olymp.coords)
-      .addTo(map)
-      .bindPopup(
-        `<b>${olymp.year} - ${olymp.city}</b><br>Partecipanti: ${olymp.participants}`
-      );
-  });
-}
-
-// -------- GRAFICO ---------
-const ctx = document.getElementById("participantsChart").getContext("2d");
-const chart = new Chart(ctx, {
-  type: "bar",
-  data: {
-    labels: olympicsData.map((o) => o.year),
-    datasets: [
-      {
-        label: "Partecipanti",
-        data: olympicsData.map((o) => o.participants),
-        backgroundColor: "rgba(255, 165, 0, 0.7)",
-        borderColor: "rgba(255, 165, 0, 1)",
-        borderWidth: 1,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    scales: {
-      y: {
-        beginAtZero: true,
-        ticks: {
-          stepSize: 1000,
-        },
-      },
+const ctx = document.getElementById("grafico-partecipanti").getContext("2d");
+new Chart(ctx, {
+    type: "line",
+    data: {
+        labels: datiPartecipanti.map(d => d.anno),
+        datasets: [{
+            label: "Paesi partecipanti",
+            data: datiPartecipanti.map(d => d.paesi),
+            borderColor: "#009246",
+            backgroundColor: "rgba(0, 146, 70, 0.2)",
+            fill: true,
+            tension: 0.4
+        }]
     },
-  },
+    options: {
+        responsive: true,
+        scales: {
+            y: { beginAtZero: true }
+        }
+    }
 });
 
-// ------- CITAZIONI ------------
-const quoteCarousel = document.getElementById("quoteCarousel");
-let quoteIndex = 0;
-function mostraCitazione() {
-  quoteCarousel.textContent = quotes[quoteIndex];
-  quoteIndex = (quoteIndex + 1) % quotes.length;
+const anniOlimpiadi = document.getElementById("anni-olimpiadi");
+let contatoreAttivato = false;
+function avviaContatore() {
+    if (contatoreAttivato) return;
+    contatoreAttivato = true;
+    let anni = 0;
+    const targetAnni = 2025 - 1896;
+    const intervallo = setInterval(() => {
+        if (anni < targetAnni) {
+            anni++;
+            anniOlimpiadi.textContent = anni;
+        } else {
+            clearInterval(intervallo);
+        }
+    }, 20);
 }
-mostraCitazione();
-setInterval(mostraCitazione, 6000);
 
-// ------ CURIOSITÀ -------------
-const curiositiesDiv = document.getElementById("curiosities");
-curiosities.forEach((c) => {
-  const p = document.createElement("p");
-  p.textContent = "• " + c;
-  curiositiesDiv.appendChild(p);
+// Caricamento dinamico della timeline
+const timelineContainer = document.getElementById("timeline-container");
+const mostraAltroBtn = document.getElementById("mostra-altro");
+let currentIndex = 0;
+const itemsPerLoad = 10;
+
+function caricaNodiTimeline(filteredItems = luoghiOlimpiadi) {
+    const fine = Math.min(currentIndex + itemsPerLoad, filteredItems.length);
+    for (let i = currentIndex; i < fine; i++) {
+        const luogo = filteredItems[i];
+        const partecipanti = datiPartecipanti.find(d => d.anno === luogo.anno)?.paesi || "N/D";
+        const div = document.createElement("div");
+        div.className = `container ${i % 2 === 0 ? "left" : "right"}`;
+        div.dataset.year = luogo.anno;
+        div.innerHTML = `
+            <div class="content">
+                <img src="${luogo.flagUrl}" alt="Bandiera ${luogo.citta}" class="timeline-flag">
+                <h2>${luogo.anno}</h2>
+                <p>${luogo.citta}</p>
+            </div>
+        `;
+        timelineContainer.appendChild(div);
+
+        // Tooltip
+        div.addEventListener("mouseover", (e) => {
+            const tooltip = document.createElement("div");
+            tooltip.className = "tooltip";
+            tooltip.innerHTML = `
+                <strong>${luogo.anno} - ${luogo.citta}</strong><br>
+                Paese: ${luogo.paese}<br>
+                Partecipanti: ${partecipanti} paesi
+            `;
+            document.body.appendChild(tooltip);
+            const rect = div.getBoundingClientRect();
+            tooltip.style.left = `${rect.left + rect.width / 2}px`;
+            tooltip.style.top = `${rect.top - tooltip.offsetHeight - 10}px`;
+        });
+
+        div.addEventListener("mouseout", () => {
+            document.querySelectorAll(".tooltip").forEach(t => t.remove());
+        });
+
+        // Clic per centrare la mappa
+        div.addEventListener("click", () => {
+            const marker = markers.find(m => m.anno === luogo.anno)?.marker;
+            if (marker) {
+                mappa.setView([luogo.lat, luogo.lng], 5);
+                marker.openPopup();
+                document.querySelectorAll(".container").forEach(i => i.classList.remove("active"));
+                div.classList.add("active");
+            }
+        });
+    }
+    currentIndex = fine;
+    mostraAltroBtn.style.display = currentIndex < filteredItems.length ? "block" : "none";
+}
+
+// Inizializza la timeline
+caricaNodiTimeline();
+
+// Pulsante "Mostra altro"
+mostraAltroBtn.addEventListener("click", () => {
+    const filteredItems = getFilteredItems();
+    caricaNodiTimeline(filteredItems);
 });
 
-// ---- NAVBAR SCROLL ----
-const navbar = document.getElementById("navbar");
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
+// Filtro anni
+const yearFilter = document.getElementById("year-filter");
+yearFilter.addEventListener("change", () => {
+    const filteredItems = getFilteredItems();
+    timelineContainer.innerHTML = "";
+    currentIndex = 0;
+    caricaNodiTimeline(filteredItems);
 });
 
-// --- SCROLL TO TOP ---
-const scrollTopBtn = document.getElementById("scrollTopBtn");
-scrollTopBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+function getFilteredItems() {
+    const value = yearFilter.value;
+    if (value === "all") return luoghiOlimpiadi;
+    const [start, end] = value.split("-").map(Number);
+    return luoghiOlimpiadi.filter(luogo => luogo.anno >= start && luogo.anno <= end);
+}
 
-// --- INIZIALIZZAZIONE ---
-window.onload = () => {
-  initMappa();
+const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.3
 };
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const target = entry.target;
+            if (target.id === "mappa") {
+                target.classList.add("animate-fadeInUp");
+            } else if (target.id === "timeline") {
+                target.querySelectorAll(".container").forEach((item, index) => {
+                    setTimeout(() => item.classList.add("animate-rotateIn"), index * 200);
+                });
+            } else if (target.id === "grafico") {
+                target.classList.add("animate-fadeInUp");
+            } else if (target.id === "frasi") {
+                target.querySelectorAll("p").forEach((p, index) => {
+                    const animClass = index % 2 === 0 ? "animate-fadeInLeft" : "animate-fadeInRight";
+                    setTimeout(() => p.classList.add(animClass), index * 200);
+                });
+            } else if (target.id === "contatore") {
+                target.classList.add("animate-fadeInUp");
+                avviaContatore();
+            } else if (target.tagName === "HEADER") {
+                target.classList.add("animate-fadeIn");
+            } else if (target.tagName === "FOOTER") {
+                target.classList.add("animate-fadeIn");
+            }
+            observer.unobserve(target);
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll("header, section, footer").forEach(element => {
+    observer.observe(element);
+});
