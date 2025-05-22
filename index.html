@@ -1,64 +1,67 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olimpiadi: Unione dei Popoli</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tesina Olimpiadi - Giacomo Stragapede 3D</title>
+
+<!-- Leaflet CSS senza integrity -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+/>
+
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <h1>Olimpiadi: Unione dei Popoli</h1>
-    </header>
-    <section id="mappa">
-        <h2>Luoghi delle Olimpiadi Moderne</h2>
-        <div id="mappa-olimpiadi" style="height: 400px;"></div>
-    </section>
-    <section id="timeline">
-        <h2>Timeline delle Olimpiadi Moderne</h2>
-        <div class="timeline-filter">
-            <label for="year-filter">Filtra per anni:</label>
-            <select id="year-filter">
-                <option value="all">Tutti</option>
-                <option value="1896-1950">1896-1950</option>
-                <option value="1951-2000">1951-2000</option>
-                <option value="2001-2024">2001-2024</option>
-            </select>
-        </div>
-        <div class="timeline" id="timeline-container">
-            <!-- Nodi caricati dinamicamente via JavaScript -->
-        </div>
-        <button id="mostra-altro" style="display: none;">Mostra altro</button>
-    </section>
-    <section id="grafico">
-        <h2>Numero di Paesi Partecipanti per Anno</h2>
-        <canvas id="grafico-partecipanti" width="800" height="400"></canvas>
-    </section>
-    <section id="frasi">
-        <h2>Unione tra i Popoli</h2>
-        <div class="frasi-container">
-            <p>Italiano: Lo sport unisce i popoli oltre ogni confine.</p>
-            <p>English: Sport unites people beyond all borders.</p>
-            <p>Español: El deporte une a los pueblos más allá de las fronteras.</p>
-            <p>中文: 体育跨越国界，连接人民。</p>
-            <p>हिन्दी: खेल सीमाओं के पार लोगों को एकजुट करता है।</p>
-            <p>العربية: الرياضة توحد الشعوب عبر الحدود.</p>
-            <p>Français: Le sport unit les peuples au-delà des frontières.</p>
-            <p>Русский: Спорт объединяет народы за пределами границ.</p>
-            <p>Português: O esporte une os povos além das fronteiras.</p>
-            <p>বাংলা: খেলাধুলা সীমানার বাইরে মানুষকে একত্রিত করে।</p>
-        </div>
-    </section>
-    <section id="contatore">
-        <h2>Le Olimpiadi Moderne</h2>
-        <p>Anni di storia: <span id="anni-olimpiadi">0</span></p>
-    </section>
-    <footer>
-        <p>Attraverso lo sport, costruiamo ponti tra i popoli.</p>
-    </footer>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="script.js"></script>
+
+<nav id="navbar">
+  <div class="nav-content">
+    <h1 class="typewriter">Tesina Olimpiadi - Giacomo Stragapede 3D</h1>
+  </div>
+</nav>
+
+<section id="intro">
+  <h2>Introduzione</h2>
+  <p>
+    Le Olimpiadi antiche nacquero in Grecia nel 776 a.C., nella città di Olimpia, in onore del dio Zeus. ...
+  </p>
+</section>
+
+<section id="timeline-section">
+  <h2>Timeline delle Olimpiadi Moderne</h2>
+  <div id="timeline" class="timeline"></div>
+  <button id="toggleTimelineBtn">Mostra altri</button>
+</section>
+
+<section id="map-section">
+  <h2>Mappa delle Città Olimpiche</h2>
+  <div id="map" style="height: 400px;"></div>
+</section>
+
+<section id="chart-section">
+  <h2>Grafico partecipanti per edizione</h2>
+  <canvas id="participantsChart"></canvas>
+</section>
+
+<section id="quotes-section">
+  <h2>Citazioni Olimpiche</h2>
+  <div id="quoteCarousel" class="quote-carousel"></div>
+</section>
+
+<section id="curiosities-section">
+  <h2>Curiosità sulle Olimpiadi</h2>
+  <div id="curiosities" class="curiosities"></div>
+</section>
+
+<button id="scrollTopBtn" title="Torna su">⬆</button>
+
+<!-- Leaflet JS senza integrity -->
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="script.js"></script>
+
 </body>
 </html>
