@@ -9,7 +9,7 @@ const luoghiOlimpiadi = [
     { anno: 1928, citta: "Amsterdam", lat: 52.3676, lng: 4.9041, paese: "NL", flagUrl: "https://www.worldometers.info/img/flags/nl-flag.gif" },
     { anno: 1932, citta: "Los Angeles", lat: 34.0522, lng: -118.2437, paese: "US", flagUrl: "https://www.worldometers.info/img/flags/us-flag.gif" },
     { anno: 1936, citta: "Berlino", lat: 52.5200, lng: 13.4050, paese: "DE", flagUrl: "https://www.worldometers.info/img/flags/gm-flag.gif" },
-    { anno: 1948, citta: "Londra", lat: 51.5074, lng: -0.1278, paese: "GB", flagUrl: "https://www.worldometers.info/img/flags/gb-flag.gif" },
+    { anno: 1948, citta: "Londra", lat: 51.5074, lng: -0.1278, paese: "GB", flagUrl: "https://www.worldometers.info/img/flags/uk-flag.gif" },
     { anno: 1952, citta: "Helsinki", lat: 60.1699, lng: 24.9384, paese: "FI", flagUrl: "https://www.worldometers.info/img/flags/fi-flag.gif" },
     { anno: 1956, citta: "Melbourne", lat: -37.8136, lng: 144.9631, paese: "AU", flagUrl: "https://www.worldometers.info/img/flags/as-flag.gif" },
     { anno: 1960, citta: "Roma", lat: 41.9028, lng: 12.4964, paese: "IT", flagUrl: "https://www.worldometers.info/img/flags/it-flag.gif" },
@@ -25,7 +25,7 @@ const luoghiOlimpiadi = [
     { anno: 2000, citta: "Sydney", lat: -33.8688, lng: 151.2093, paese: "AU", flagUrl: "https://www.worldometers.info/img/flags/as-flag.gif" },
     { anno: 2004, citta: "Atene", lat: 37.9838, lng: 23.7275, paese: "GR", flagUrl: "https://www.worldometers.info/img/flags/gr-flag.gif" },
     { anno: 2008, citta: "Pechino", lat: 39.9042, lng: 116.4074, paese: "CN", flagUrl: "https://www.worldometers.info/img/flags/ch-flag.gif" },
-    { anno: 2012, citta: "Londra", lat: 51.5074, lng: -0.1278, paese: "GB", flagUrl: "https://www.worldometers.info/img/flags/gb-flag.gif" },
+    { anno: 2012, citta: "Londra", lat: 51.5074, lng: -0.1278, paese: "GB", flagUrl: "https://www.worldometers.info/img/flags/uk-flag.gif" },
     { anno: 2016, citta: "Rio de Janeiro", lat: -22.9068, lng: -43.1729, paese: "BR", flagUrl: "https://www.worldometers.info/img/flags/br-flag.gif" },
     { anno: 2020, citta: "Tokyo", lat: 35.6762, lng: 139.6503, paese: "JP", flagUrl: "https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg" },
     { anno: 2024, citta: "Parigi", lat: 48.8566, lng: 2.3522, paese: "FR", flagUrl: "https://www.worldometers.info/img/flags/fr-flag.gif" }
