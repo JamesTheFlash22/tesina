@@ -1,0 +1,204 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #1a252f;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.home-btn {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: #e74c3c;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.home-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+section {
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 1rem;
+}
+
+h2 {
+    color: #1a252f;
+    border-bottom: 3px solid #e74c3c;
+    padding-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+/* Sezione 1: Introduzione */
+#intro {
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://wips.plug.it/cips/paginegialle.it/magazine/cms/2018/07/atletica-leggera.jpg?w=744&h=418&a=c') center/cover no-repeat;
+    padding: 5rem 2rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+#intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#intro p {
+    max-width: 700px;
+    margin: 1rem auto;
+    font-size: 1.2rem;
+}
+
+.discover-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.discover-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+/* Sezione 2: Galleria */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.gallery-item {
+    flex: 1 1 300px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+}
+
+.gallery-item img, .gallery-item iframe {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item p {
+    margin: 0.5rem 0;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Sezione 7: Temi */
+.temi-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.tema-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex: 1 1 300px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.tema-card:hover {
+    transform: scale(1.05);
+}
+
+.tema-card i {
+    font-size: 2.5rem;
+    color: #e74c3c;
+    margin-bottom: 0.5rem;
+}
+
+.tema-card h3 {
+    margin: 0.5rem 0;
+    color: #1a252f;
+}
+
+/* Sezione 9: Accordion */
+.accordion-item {
+    margin-bottom: 1rem;
+}
+
+.accordion-header {
+    background-color: #e74c3c;
+    color: white;
+    padding: 1rem;
+    width: 100%;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.accordion-header:hover {
+    background-color: #c0392b;
+}
+
+.accordion-content {
+    display: none;
+    padding: 1rem;
+    background: white;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.accordion-content.active {
+    display: block;
+}
+
+/* Footer */
+footer {
+    background-color: #1a252f;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1.1rem;
+}

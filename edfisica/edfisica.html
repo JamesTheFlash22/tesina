@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olimpiadi: Unione dei Popoli</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="edfisica.css">
+</head>
+<body>
+    <header>
+        <h1>Olimpiadi: Unione dei Popoli</h1>
+    </header>
+    <section id="mappa">
+        <h2>Luoghi delle Olimpiadi Moderne</h2>
+        <div id="mappa-olimpiadi" style="height: 400px;"></div>
+    </section>
+    <section id="timeline">
+        <h2>Timeline delle Olimpiadi Moderne</h2>
+        <div class="timeline-filter">
+            <label for="year-filter">Filtra per anni:</label>
+            <select id="year-filter">
+                <option value="all">Tutti</option>
+                <option value="1896-1950">1896-1950</option>
+                <option value="1951-2000">1951-2000</option>
+                <option value="2001-2024">2001-2024</option>
+            </select>
+        </div>
+        <div class="timeline" id="timeline-container">
+            <!-- Nodi caricati dinamicamente via JavaScript -->
+        </div>
+        <button id="mostra-altro" style="display: none;">Mostra altro</button>
+    </section>
+    <section id="grafico">
+        <h2>Numero di Paesi Partecipanti per Anno</h2>
+        <canvas id="grafico-partecipanti" width="800" height="400"></canvas>
+    </section>
+    <section id="frasi">
+        <h2>Unione tra i Popoli</h2>
+        <div class="frasi-container">
+            <p>Italiano: Lo sport unisce i popoli oltre ogni confine.</p>
+            <p>English: Sport unites people beyond all borders.</p>
+            <p>Français: Le sport unit les peuples au-delà des frontières.</p>
+        </div>
+    </section>
+    <section id="contatore">
+        <h2>Le Olimpiadi Moderne</h2>
+        <p>Anni di storia: <span id="anni-olimpiadi">0</span></p>
+    </section>
+    <footer>
+        <p>Attraverso lo sport, costruiamo ponti tra i popoli.</p>
+    </footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="edfisica.js"></script>
+</body>
+</html>
