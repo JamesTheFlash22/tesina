@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F3F4F6;
+    color: #111827;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #1E40AF;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #FBBF24;
+    margin-bottom: 15px;
+}
+
+.home-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #FBBF24;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.home-btn:hover {
+    background-color: #D97706;
+    transform: scale(1.05);
+}
+
+nav {
+    background-color: #1E40AF;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: #FBBF24;
+    text-decoration: none;
+    margin: 0 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #FBBF24;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: #D97706;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #FBBF24;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.curiosite {
+    opacity: 0;
+    transform: translateY(20px);
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #F3F4F6;
+    border-radius: 8px;
+    border-left: 5px solid #3B82F6;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.curiosite.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.curiosite h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #1E40AF;
+    margin-bottom: 10px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gallery img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #3B82F6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
