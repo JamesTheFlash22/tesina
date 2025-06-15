@@ -114,15 +114,15 @@ function dragEnd(evt) {
 const leveInfo = {
   primo: {
     titolo: "Leva di primo genere",
-    testo: "Il fulcro si trova tra forza e resistenza, come nel collo umano."
+    testo: "In questa leva, il fulcro è posizionato tra la forza e la resistenza. Un esempio nel corpo umano è il collo, dove il cranio ruota attorno alla prima vertebra, bilanciando il peso della testa con la forza dei muscoli del collo."
   },
   secondo: {
     titolo: "Leva di secondo genere",
-    testo: "La resistenza si trova tra fulcro e forza, come nella schiena."
+    testo: "Qui la resistenza si trova tra il fulcro e la forza. Nel corpo umano, un esempio è la schiena durante il sollevamento di un carico, dove la colonna vertebrale funge da fulcro, la resistenza è rappresentata dal peso del carico, e la forza proviene dai muscoli lombari."
   },
   terzo: {
     titolo: "Leva di terzo genere",
-    testo: "La forza si trova tra fulcro e resistenza, come nel braccio umano."
+    testo: "In questo tipo di leva, la forza è applicata tra il fulcro e la resistenza. Il braccio umano è un tipico esempio: il gomito è il fulcro, i muscoli del bicipite applicano la forza, mentre la resistenza è il peso che si solleva con la mano."
   }
 };
 
