@@ -19,7 +19,7 @@ header {
 
 .home-btn {
     position: absolute;
-    top: -1px;
+    top: 10px;
     left: 20px;
     padding: 8px 16px;
     background-color: #f1c40f;
