@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Curiosità sulle leve - Scienze</title>
+  <link rel="stylesheet" href="scienze.css" />
+</head>
+<body>
+  <!-- Pulsante HOME -->
+  <a href="../index.html" id="btn-home" aria-label="Torna alla home">Home</a>
+
+  <header>
+    <h1>Le leve: Scienza in movimento</h1>
+    <p>Scopriamo come le leve ci aiutano nel corpo e nella vita di tutti i giorni!</p>
+  </header>
+
+  <main>
+    <!-- Simulatore leva -->
+    <section id="simulatore-leva" class="anim-fade-slide">
+      <h2>Simulatore di leva interattivo</h2>
+      <p>Trascina i cerchi per spostare forza e resistenza e osserva come si muove la leva!</p>
+
+      <div id="leva-container" role="region" aria-label="Simulatore leva interattivo">
+        <svg id="leva-svg" viewBox="0 0 600 200" aria-label="Simulatore leva interattiva" role="img" tabindex="0" >
+          <!-- Asta leva -->
+          <line x1="100" y1="100" x2="500" y2="100" stroke="#204060" stroke-width="10" stroke-linecap="round" />
+          <!-- Fulcro -->
+          <polygon id="fulcro" points="295,110 305,110 300,150" fill="#31708E" />
+          
+          <!-- Forza gruppo -->
+          <g id="forza" tabindex="0" aria-label="Punto di applicazione della forza" role="slider" aria-valuemin="110" aria-valuemax="300" aria-valuenow="160" aria-valuetext="Posizione della forza">
+            <circle cx="160" cy="100" r="25" fill="#0a9d8f" style="filter: drop-shadow(0 3px 4px rgba(0,0,0,0.2));" />
+            <text id="testo-forza" x="160" y="105" fill="#fff" font-size="14" font-weight="700" text-anchor="middle" pointer-events="none" style="user-select:none;">Forza</text>
+          </g>
+
+          <!-- Resistenza gruppo -->
+          <g id="resistenza" tabindex="0" aria-label="Punto di applicazione della resistenza" role="slider" aria-valuemin="300" aria-valuemax="490" aria-valuenow="440" aria-valuetext="Posizione della resistenza">
+            <circle cx="440" cy="100" r="25" fill="#e76f51" style="filter: drop-shadow(0 3px 4px rgba(0,0,0,0.2));" />
+            <text id="testo-resistenza" x="440" y="105" fill="#fff" font-size="12" font-weight="700" text-anchor="middle" pointer-events="none" style="user-select:none;">Resistenza</text>
+          </g>
+        </svg>
+        <p id="output-movimento" aria-live="polite" class="output-text"></p>
+      </div>
+    </section>
+
+    <!-- Corpo umano con leve interattive -->
+<section id="corpo-umano" class="anim-fade-slide" style="animation-delay: 0.4s;">
+  <h2>Corpo umano e tipi di leve</h2>
+  <p>Clicca sui punti colorati per scoprire i tre tipi di leve nel corpo umano.</p>
+
+  <div id="immagine-corpo" style="position:relative; width:365px; height:684px; margin: auto;">
+    <img src="scheletro.png" alt="Scheletro umano realistico" style="width: 100%; height: auto;" />
+
+    <!-- Leva di primo genere: Collo -->
+    <button class="leva-btn" style="top:15%; left:48%;" aria-label="Leva di primo genere: Collo" data-tipo="primo"></button>
+
+    <!-- Leva di secondo genere: Schiena -->
+    <button class="leva-btn" style="top:70%; left:52%;" aria-label="Leva di secondo genere: Schiena" data-tipo="secondo"></button>
+
+    <!-- Leva di terzo genere: Braccio -->
+    <button class="leva-btn" style="top:50%; left:27%;" aria-label="Leva di terzo genere: Braccio" data-tipo="terzo"></button>
+  </div>
+
+  <!-- Popup modale -->
+  <div id="popup-leva" role="dialog" aria-modal="true" aria-labelledby="popup-title" aria-describedby="popup-desc" tabindex="-1" hidden>
+    <div id="popup-content">
+      <button id="popup-chiudi" aria-label="Chiudi popup">&times;</button>
+      <h3 id="popup-title"></h3>
+      <p id="popup-desc"></p>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <script src="scienze.js"></script>
+</body>
+</html>
