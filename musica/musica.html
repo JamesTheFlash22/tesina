@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Mondo del Jazz</title>
+    <link rel="stylesheet" href="musica.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="home-btn">Home</a>
+        <h1>Il Mondo del Jazz</h1>
+        <nav>
+            <a href="#home">Introduzione</a>
+            <a href="#curiosita">Curiosità</a>
+            <a href="#gallery">Strumenti</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h2>Esplorare il Jazz: Un Viaggio Musicale</h2>
+        <p>Scopri l’affascinante mondo del jazz, un genere musicale che unisce culture attraverso ritmo e improvvisazione. Esplora curiosità e strumenti iconici!</p>
+        <button onclick="window.location.href='#curiosita'">Scopri le Curiosità</button>
+    </section>
+
+    <section class="curiosita" id="curiosita">
+        <h3>Curiosità sul Jazz</h3>
+        <div class="curiosita-container">
+            <div class="curiosita-card">
+                <h4>Improvvisazione Unica</h4>
+                <p>Il jazz si distingue per l’improvvisazione, dove i musicisti creano melodie spontanee, come in una conversazione musicale.</p>
+                <p class="extra-info">Esempio: Miles Davis era famoso per le sue improvvisazioni che trasformavano ogni concerto in un evento unico.</p>
+            </div>
+            <div class="curiosita-card">
+                <h4>Origine del Nome</h4>
+                <p>La parola “jazz” potrebbe derivare da “jasm”, un termine ottocentesco che indicava energia e vitalità.</p>
+                <p class="extra-info">Curiosità: Il termine “jazz” apparve per la prima volta in un articolo di giornale nel 1913.</p>
+            </div>
+            <div class="curiosita-card">
+                <h4>Luogo di Incontro</h4>
+                <p>Negli anni della segregazione, i club jazz erano spazi di integrazione culturale e sociale.</p>
+                <p class="extra-info">Esempio: Il Cotton Club di Harlem ospitava artisti come Duke Ellington, unendo pubblico di ogni origine.</p>
+            </div>
+            <div class="curiosita-card">
+                <h4>Influenza Globale</h4>
+                <p>Il jazz ha incorporato ritmi da tutto il mondo, come la bossa nova brasiliana e l’afro-jazz.</p>
+                <p class="extra-info">Esempio: “The Girl from Ipanema” è un celebre brano che unisce jazz e ritmi brasiliani.</p>
+            </div>
+            <div class="curiosita-card">
+                <h4>Jazz nello Spazio</h4>
+                <p>Nel 1980, l’astronauta Ronald McNair suonò il sassofono sulla navetta Challenger.</p>
+                <p class="extra-info">Fatto: McNair era un sassofonista jazz professionista prima di diventare astronauta!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <h3>Strumenti del Jazz</h3>
+        <div class="gallery-container">
+            <div class="gallery-item" data-info="Il sassofono è l’anima del jazz, usato da leggende come John Coltrane.">
+                <img src="sax.png" alt="Sassofono">
+            </div>
+            <div class="gallery-item" data-info="La tromba dà brillantezza al jazz, resa famosa da Louis Armstrong.">
+                <img src="trumpet.png" alt="Tromba">
+            </div>
+            <div class="gallery-item" data-info="Il contrabbasso fornisce il ritmo pulsante del jazz.">
+                <img src="bass.png" alt="Contrabbasso">
+            </div>
+        </div>
+        <div class="gallery-info"></div>
+    </section>
+
+    <script src="musica.js"></script>
+</body>
+</html>
