@@ -1,3 +1,55 @@
+// Carosello
+const slides = document.querySelectorAll('.slide');
+const caption = document.querySelector('.caption');
+const dotsContainer = document.querySelector('.dots');
+let currentSlide = 0;
+
+// Inizializza i pallini del carosello
+slides.forEach((_, index) => {
+  const dot = document.createElement('button');
+  dot.classList.add('dot');
+  if (index === 0) dot.classList.add('active');
+  dot.setAttribute('aria-label', `Vai alla slide ${index + 1}`);
+  dotsContainer.appendChild(dot);
+
+  dot.addEventListener('click', () => {
+    showSlide(index);
+  });
+});
+
+// Funzione per mostrare una slide
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[index].classList.add('active');
+
+  const text = slides[index].getAttribute('data-text');
+  caption.textContent = text;
+
+  const dots = document.querySelectorAll('.dot');
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+
+  currentSlide = index;
+}
+
+// Pulsanti avanti/indietro
+document.getElementById('prev').addEventListener('click', () => {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+});
+
+document.getElementById('next').addEventListener('click', () => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+});
+
+// Mostra la prima slide all'inizio
+showSlide(0);
+
+// -----------------------------
+// TIMELINE INTERATTIVA
+// -----------------------------
+
 const futurismEvents = [
   {
     year: '1909',
@@ -29,43 +81,33 @@ const futurismEvents = [
   }
 ];
 
-
-// Riferimenti DOM
-const timelineButtons = document.querySelectorAll('.timeline-event');
+const timelineEvents = document.querySelectorAll('.timeline-event');
 const eventDetails = document.querySelector('.event-details');
 
+// Funzione per aggiornare la visualizzazione del dettaglio
 function updateEventDetails(index) {
   const event = futurismEvents[index];
-  eventDetails.style.opacity = '0';
-  setTimeout(() => {
-    eventDetails.innerHTML = `
-      <h3>${event.year} - ${event.title}</h3>
-      <p>${event.description}</p>
-      <img src="${event.image}" alt="${event.alt}" />
-    `;
-    eventDetails.style.opacity = '1';
-  }, 300);
+  eventDetails.innerHTML = `
+    <h3>${event.year} - ${event.title}</h3>
+    <img src="${event.image}" alt="${event.alt}" />
+    <p>${event.description}</p>
+  `;
+
+  timelineEvents.forEach(btn => {
+    btn.classList.remove('active');
+    btn.setAttribute('aria-selected', 'false');
+  });
+
+  timelineEvents[index].classList.add('active');
+  timelineEvents[index].setAttribute('aria-selected', 'true');
 }
 
-// Setup eventi click timeline
-timelineButtons.forEach((btn, i) => {
+// Aggiunge l’evento al click sui bottoni della timeline
+timelineEvents.forEach((btn, index) => {
   btn.addEventListener('click', () => {
-    if(btn.classList.contains('active')) return;
-
-    // Aggiorna selezione accessibilità
-    timelineButtons.forEach(b => {
-      b.classList.remove('active');
-      b.setAttribute('aria-selected', 'false');
-      b.setAttribute('tabindex', '-1');
-    });
-    btn.classList.add('active');
-    btn.setAttribute('aria-selected', 'true');
-    btn.setAttribute('tabindex', '0');
-    btn.focus();
-
-    updateEventDetails(i);
+    updateEventDetails(index);
   });
 });
 
-// Inizializza con primo evento attivo
+// Mostra il primo evento
 updateEventDetails(0);
