@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curiosità di Educazione Civica</title>
+  <link rel="stylesheet" href="edcivica.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="home-button">HOME</a>
+  </nav>
+
+  <header>
+    <h1>Curiosità Civiche Olimpiche</h1>
+    <p>Scopri aspetti sorprendenti sul ruolo dello sport nella società.</p>
+  </header>
+
+  <main>
+    <section class="card" onclick="togglePopup('popup1')">
+      <h2>Bandiera Olimpica e Diritti</h2>
+      <p>Lo sapevi che i cinque cerchi rappresentano l'unità tra i continenti?</p>
+      <div id="popup1" class="popup">
+        <p>La bandiera olimpica simboleggia l'unione di tutti i popoli. È stata usata anche come simbolo nei discorsi dell'ONU sul diritto alla pace.</p>
+      </div>
+    </section>
+
+    <section class="card" onclick="togglePopup('popup2')">
+      <h2>Sport e Agenda 2030</h2>
+      <p>Le Olimpiadi aiutano davvero a migliorare il mondo?</p>
+      <div id="popup2" class="popup">
+        <p>Lo sport è riconosciuto nell'Agenda 2030 come mezzo per la pace, l'inclusione e la giustizia sociale. Diverse ONG lo usano per aiutare rifugiati e giovani.</p>
+      </div>
+    </section>
+
+    <section class="card" onclick="togglePopup('popup3')">
+      <h2>Atleti che cambiano la storia</h2>
+      <p>Ci sono stati gesti olimpici che hanno ispirato il mondo intero?</p>
+      <div id="popup3" class="popup">
+        <p>Sì! Come il saluto dei pugni alzati di Tommie Smith e John Carlos nel 1968, simbolo della lotta per i diritti civili negli USA.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="edcivica.js"></script>
+</body>
+</html>
