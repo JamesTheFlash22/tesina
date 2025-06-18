@@ -41,18 +41,24 @@ const facts = [
   "The film and musical helped revive interest in ballet among boys and challenged traditional gender roles in dance."
 ];
 
-
 let factIndex = 0;
 const factTextEl = document.getElementById("factText");
 
 function showFact() {
-  factTextEl.style.opacity = 0;
+  // Rimuove la classe active per avviare l'animazione di uscita
+  factTextEl.classList.remove("active");
+
   setTimeout(() => {
+    // Aggiorna il testo e riattiva l'animazione
     factTextEl.textContent = facts[factIndex];
-    factTextEl.style.opacity = 1;
+    factTextEl.classList.add("active");
     factIndex = (factIndex + 1) % facts.length;
   }, 600);
 }
 
+// Inizializza il primo fatto con la classe active
+factTextEl.textContent = facts[factIndex];
+factTextEl.classList.add("active");
+factIndex = (factIndex + 1) % facts.length;
+
 setInterval(showFact, 6000);
-showFact();
