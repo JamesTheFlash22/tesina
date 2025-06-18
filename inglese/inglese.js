@@ -61,4 +61,4 @@ factTextEl.textContent = facts[factIndex];
 factTextEl.classList.add("active");
 factIndex = (factIndex + 1) % facts.length;
 
-setInterval(showFact, 6000);
+setInterval(showFact, 5000);
