@@ -1,6 +1,5 @@
-// Animazione fade-in per le curiosità
 document.addEventListener('DOMContentLoaded', () => {
-    const curiosites = document.querySelectorAll('.curiosite');
+    const elements = document.querySelectorAll('.curiosite, .intro'); // Aggiungi .intro
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -10,5 +9,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.1 });
 
-    curiosites.forEach(curiosite => observer.observe(curiosite));
+    elements.forEach(element => observer.observe(element));
 });
