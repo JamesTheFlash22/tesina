@@ -121,15 +121,31 @@ periodi[0].classList.add('active');
 
 // Gioco di sintonizzazione
 const slider = document.getElementById('sintonizza-slider');
-const tvImage = document.querySelector('.tv-image');
+const tvImage = document.getElementById('tv-image');
 const interference = document.querySelector('.interference');
 const annoSintonizza = document.getElementById('anno-sintonizza');
 
+// Inizializza gli effetti visivi per l'anno 1936 (valore slider = 0)
+const initialValue = slider.value;
+let initialBlur = 3;
+let initialBrightness = 0.5;
+let initialInterferenceOpacity = 1;
+let initialInterferenceAnimation = 'interference-flicker 0.05s infinite';
+let initialGrayscale = 100;
+let initialPixelated = 'pixelated';
+tvImage.src = 'foto.jpg?t=' + new Date().getTime(); // Forza il caricamento con timestamp
+tvImage.style.filter = `grayscale(${initialGrayscale}%) blur(${initialBlur}px) brightness(${initialBrightness})`;
+tvImage.style.imageRendering = initialPixelated;
+interference.style.opacity = initialInterferenceOpacity;
+interference.style.animation = initialInterferenceAnimation;
+console.log('Immagine iniziale:', tvImage.src); // Debug
+
 slider.addEventListener('input', () => {
     const value = slider.value;
-    let blur, brightness, interferenceOpacity, anno, interferenceAnimation, grayscale, pixelated;
+    let blur, brightness, interferenceOpacity, anno, interferenceAnimation, grayscale, pixelated, imageSrc;
 
-    if (value < 11.11) {
+    // Calcola gli intervalli per 10 anni (1936, 1948, 1960, 1964, 1977, 1980, 1988, 1996, 2008, 2024)
+    if (value < 10) {
         // 1936
         blur = 3;
         brightness = 0.5;
@@ -138,7 +154,8 @@ slider.addEventListener('input', () => {
         interferenceAnimation = 'interference-flicker 0.05s infinite';
         grayscale = 100;
         pixelated = 'pixelated';
-    } else if (value < 22.22) {
+        imageSrc = 'foto2.jpg';
+    } else if (value < 20) {
         // 1948
         blur = 2.8;
         brightness = 0.55;
@@ -147,7 +164,8 @@ slider.addEventListener('input', () => {
         interferenceAnimation = 'interference-flicker 0.06s infinite';
         grayscale = 100;
         pixelated = 'pixelated';
-    } else if (value < 33.33) {
+        imageSrc = 'foto2.jpg';
+    } else if (value < 30) {
         // 1960
         blur = 2.5;
         brightness = 0.6;
@@ -156,7 +174,8 @@ slider.addEventListener('input', () => {
         interferenceAnimation = 'interference-flicker 0.08s infinite';
         grayscale = 80;
         pixelated = 'pixelated';
-    } else if (value < 44.44) {
+        imageSrc = 'foto2.jpg';
+    } else if (value < 40) {
         // 1964
         blur = 2;
         brightness = 0.65;
@@ -165,7 +184,18 @@ slider.addEventListener('input', () => {
         interferenceAnimation = 'interference-flicker 0.1s infinite';
         grayscale = 60;
         pixelated = 'auto';
-    } else if (value < 55.55) {
+        imageSrc = 'foto2.jpg';
+    } else if (value < 50) {
+        // 1977
+        blur = 1.7;
+        brightness = 0.75;
+        interferenceOpacity = 0.6;
+        anno = '1977';
+        interferenceAnimation = 'interference-flicker 0.12s infinite';
+        grayscale = 30;
+        pixelated = 'auto';
+        imageSrc = 'foto.jpg';
+    } else if (value < 60) {
         // 1980
         blur = 1.5;
         brightness = 0.8;
@@ -174,7 +204,8 @@ slider.addEventListener('input', () => {
         interferenceAnimation = 'interference-flicker 0.15s infinite';
         grayscale = 20;
         pixelated = 'auto';
-    } else if (value < 66.66) {
+        imageSrc = 'foto.jpg';
+    } else if (value < 70) {
         // 1988
         blur = 1;
         brightness = 0.85;
@@ -183,7 +214,8 @@ slider.addEventListener('input', () => {
         interferenceAnimation = 'interference-flicker 0.2s infinite';
         grayscale = 10;
         pixelated = 'auto';
-    } else if (value < 77.77) {
+        imageSrc = 'foto.jpg';
+    } else if (value < 80) {
         // 1996
         blur = 0.5;
         brightness = 0.9;
@@ -192,7 +224,8 @@ slider.addEventListener('input', () => {
         interferenceAnimation = 'interference-flicker 0.25s infinite';
         grayscale = 0;
         pixelated = 'auto';
-    } else if (value < 88.88) {
+        imageSrc = 'foto.jpg';
+    } else if (value < 90) {
         // 2008
         blur = 0.2;
         brightness = 0.95;
@@ -201,6 +234,7 @@ slider.addEventListener('input', () => {
         interferenceAnimation = 'interference-flicker 0.3s infinite';
         grayscale = 0;
         pixelated = 'auto';
+        imageSrc = 'foto.jpg';
     } else {
         // 2024
         blur = 0;
@@ -210,6 +244,14 @@ slider.addEventListener('input', () => {
         interferenceAnimation = 'none';
         grayscale = 0;
         pixelated = 'auto';
+        imageSrc = 'foto.jpg';
+    }
+
+    // Aggiorna l'immagine con timestamp per evitare cache
+    const newImageSrc = new URL(imageSrc + '?t=' + new Date().getTime(), window.location.href).href;
+    if (tvImage.src !== newImageSrc) {
+        tvImage.src = imageSrc + '?t=' + new Date().getTime();
+        console.log('Immagine aggiornata:', imageSrc, 'per anno:', anno); // Debug
     }
 
     tvImage.style.filter = `grayscale(${grayscale}%) blur(${blur}px) brightness(${brightness})`;
@@ -217,4 +259,9 @@ slider.addEventListener('input', () => {
     interference.style.opacity = interferenceOpacity;
     interference.style.animation = interferenceAnimation;
     annoSintonizza.textContent = anno;
+});
+
+// Gestisci errori di caricamento delle immagini
+tvImage.addEventListener('error', () => {
+    console.error('Errore nel caricamento dell\'immagine:', tvImage.src);
 });
