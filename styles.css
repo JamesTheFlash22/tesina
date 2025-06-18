@@ -19,38 +19,53 @@ body, html {
   user-select: none;
 }
 
-/* Cerchio nero dietro al titolo */
+/* Cerchio nero dietro al titolo: solo bordo nero, sfondo bianco */
 #centralCircle {
   position: absolute;
   left: 50%;
   top: 50%;
   width: 180px;
   height: 180px;
-  background: black;
+  background: white;
+  border: 3px solid black;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  z-index: 0;
+  z-index: 1;
+  box-shadow: 0 15px 20px rgba(0,0,0,0.90); /* Box-shadow aggiunto */
 }
 
-/* Nodo centrale: testo bianco, senza sfondo, con animazione di pulsazione */
+/* Nodo centrale: testo blu, senza sfondo, senza animazione */
 #centralNode {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 220px;
-  color: white;
+  width: 180px;
+  color: #0085C7;
   font-weight: 700;
   font-size: 1.2rem;
   text-align: center;
   line-height: 1.3;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  margin-top: 20px; /* Sposta il titolo più in basso */
+  z-index: 2;
   user-select: none;
-  animation: pulse 2s infinite ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none; /* Nessun box-shadow diretto sul nodo, solo sul cerchio */
 }
 
-/* Animazione di pulsazione per il nodo centrale */
+/* Logo sotto il testo */
+#centralLogo {
+  width: 100px;
+  height: auto;
+  margin-top: -7px; /* Sposta la foto più in basso */
+}
+
+/* Animazione di pulsazione rimossa */
 @keyframes pulse {
+  /* Mantenuta per riferimento, ma non usata */
   0% {
     transform: translate(-50%, -50%) scale(1);
   }
@@ -65,11 +80,11 @@ body, html {
 /* Rami */
 .branch {
   position: absolute;
-  width: 120px; /* Ulteriormente ridotto */
+  width: 120px;
   background: white;
-  border-radius: 10px; /* Bordi più piccoli */
-  padding: 10px 12px; /* Padding ridotto */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  padding: 10px 12px;
+  box-shadow: 0 15px 20px rgba(0,0,0,0.80);
   cursor: pointer;
   transition: transform 0.15s ease, opacity 0.5s ease;
   text-align: center;
@@ -78,19 +93,19 @@ body, html {
 
 .branch:hover {
   transform: translate(-50%, -50%) scale(1.08);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+  box-shadow: 0 5px 15px rgba(0,0,0,1);
 }
 
 /* Materia titolo */
 .materia-title {
   font-weight: 700;
-  font-size: 0.95rem; /* Ridotto */
+  font-size: 0.95rem;
   margin-bottom: 4px;
 }
 
 /* Argomento */
 .materia-argomento {
-  font-size: 0.8rem; /* Ridotto */
+  font-size: 0.8rem;
   color: #444;
   line-height: 1.2;
   white-space: normal;
@@ -98,38 +113,38 @@ body, html {
 
 /* Colori rami secondo colori olimpici */
 .branch[data-materia="Ed. Fisica"] {
-  border-top: 3px solid #0085C7;
+  border-top: 7px solid #0085C7;
 }
 .branch[data-materia="Italiano"] {
-  border-top: 3px solid #F4C300;
+  border-top: 7px solid #F4C300;
 }
 .branch[data-materia="Scienze"] {
-  border-top: 3px solid #000000;
+  border-top: 7px solid #000000;
   color: black;
 }
 .branch[data-materia="Geografia"] {
-  border-top: 3px solid #009B3A;
+  border-top: 7px solid #009B3A;
 }
 .branch[data-materia="Inglese"] {
-  border-top: 3px solid #DF0024;
+  border-top: 7px solid #DF0024;
 }
 .branch[data-materia="Francese"] {
-  border-top: 3px solid #0085C7;
+  border-top: 7px solid #0085C7;
 }
 .branch[data-materia="Storia"] {
-  border-top: 3px solid #000000;
+  border-top: 7px solid #000000;
 }
 .branch[data-materia="Tecnologia"] {
-  border-top: 3px solid #DF0024;
+  border-top: 7px solid #DF0024;
 }
 .branch[data-materia="Arte"] {
-  border-top: 3px solid #F4C300;
+  border-top: 7px solid #F4C300;
 }
 .branch[data-materia="Musica"] {
-  border-top: 3px solid #009B3A;
+  border-top: 7px solid #009B3A;
 }
 .branch[data-materia="Ed. Civica"] {
-  border-top: 3px solid #0085C7;
+  border-top: 7px solid #0085C7;
 }
 
 /* SVG per le linee */
@@ -141,68 +156,4 @@ body, html {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
-
-/* Popup (ripristinato a 320px come nella versione precedente) */
-#popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 320px;
-  max-width: 90vw;
-  background: white;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  border-radius: 12px;
-  padding: 20px 25px;
-  transform: translate(-50%, -50%) scale(0.8);
-  z-index: 1000;
-  flex-direction: column;
-  outline: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-#popup h2 {
-  margin-top: 0;
-  margin-bottom: 12px;
-  font-size: 1.2rem;
-}
-
-#popup p {
-  margin-bottom: 18px;
-  color: #333;
-  font-size: 0.95rem;
-  white-space: normal;
-}
-
-#popup a#popupLink {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #0085C7;
-  color: white;
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 6px;
-  text-align: center;
-}
-
-#popup a#popupLink:hover {
-  background-color: #005b8a;
-}
-
-#closePopup {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  font-weight: 700;
-  cursor: pointer;
-  color: #666;
-  line-height: 1;
-}
-
-#closePopup:hover {
-  color: #000;
 }

@@ -9,7 +9,10 @@
 <body>
   <div id="mindmap">
     <div id="centralCircle"></div>
-    <div id="centralNode">Le Olimpiadi:<br>Il Movimento che unisce i popoli</div>
+    <div id="centralNode">
+      Le Olimpiadi:<br>Il Movimento che unisce i popoli
+      <img src="logo.png" alt="Logo" id="centralLogo" />
+    </div>
 
     <!-- Rami senza stili inline -->
     <div class="branch" data-materia="Ed. Fisica" data-url="edfisica/edfisica.html">
@@ -57,13 +60,6 @@
       <div class="materia-argomento">L’arte in movimento</div>
     </div>
     <svg id="connections" width="100%" height="100%" style="position:absolute; top:0; left:0; pointer-events:none; z-index: 0;"></svg>
-  </div>
-
-  <div id="popup" tabindex="0" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
-    <button id="closePopup" aria-label="Chiudi popup">×</button>
-    <h2 id="popupTitle"></h2>
-    <p id="popupMessage"></p>
-    <a href="#" id="popupLink" rel="noopener noreferrer">Apri curiosità</a>
   </div>
 
   <script src="script.js"></script>

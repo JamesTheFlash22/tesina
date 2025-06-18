@@ -4,7 +4,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const branches = container.querySelectorAll('.branch');
   const svg = document.getElementById('connections');
 
-  const radius = 280; // Raggio invariato
+  const radius = 280; // Raggio dei rami
+  const centralCircleRadius = 75; // Raggio del cerchio centrale (180px / 2)
 
   // Posizione centrale nel container
   const centerPos = {
@@ -38,11 +39,15 @@ window.addEventListener('DOMContentLoaded', () => {
       const rectCenter = center.getBoundingClientRect();
 
       // Calcolo punti nel viewport
-      const startX = rectCenter.left + rectCenter.width / 2;
-      const startY = rectCenter.top + rectCenter.height / 2;
-      // Punto finale ancora più vicino al bordo superiore
+      const centerX = rectCenter.left + rectCenter.width / 2;
+      const centerY = rectCenter.top + rectCenter.height / 2;
       const endX = rectBranch.left + rectBranch.width / 2;
       const endY = rectBranch.top + rectBranch.height / 6; // 1/6 dall'alto per centrare sul titolo
+
+      // Calcola il punto di partenza esattamente sul bordo del cerchio centrale
+      const angle = Math.atan2(endY - centerY, endX - centerX);
+      const startX = centerX + Math.cos(angle) * centralCircleRadius;
+      const startY = centerY + Math.sin(angle) * centralCircleRadius;
 
       // Converti in coordinate relative a SVG
       const svgRect = svg.getBoundingClientRect();
@@ -51,9 +56,9 @@ window.addEventListener('DOMContentLoaded', () => {
       const lineEndX = endX - svgRect.left;
       const lineEndY = endY - svgRect.top;
 
-      // Crea una linea curva (path Bezier quadratico)
+      // Crea una linea curva (path Bezier quadratico) con curvatura originale
       const controlX = (lineStartX + lineEndX) / 2;
-      const controlY = lineStartY;
+      const controlY = lineStartY; // Curvatura originale
       const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       path.setAttribute('d', `M${lineStartX},${lineStartY} Q${controlX},${controlY} ${lineEndX},${lineEndY}`);
       path.setAttribute('stroke', '#000000'); // Linee nere
@@ -78,55 +83,13 @@ window.addEventListener('DOMContentLoaded', () => {
     drawLines();
   });
 
-  // Popup gestione
-  const popup = document.getElementById('popup');
-  const popupTitle = document.getElementById('popupTitle');
-  const popupMessage = document.getElementById('popupMessage');
-  const popupLink = document.getElementById('popupLink');
-  const closeBtn = document.getElementById('closePopup');
-
-  // Mostra popup con animazione
-  function showPopup() {
-    popup.style.display = 'flex';
-    popup.style.opacity = '0';
-    popup.style.transform = 'translate(-50%, -50%) scale(0.8)';
-    setTimeout(() => {
-      popup.style.opacity = '1';
-      popup.style.transform = 'translate(-50%, -50%) scale(1)';
-    }, 10);
-    popup.focus();
-  }
-
-  function closePopup() {
-    popup.style.opacity = '0';
-    popup.style.transform = 'translate(-50%, -50%) scale(0.8)';
-    setTimeout(() => {
-      popup.style.display = 'none';
-    }, 300);
-  }
-
-  closeBtn.addEventListener('click', closePopup);
-  window.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && popup.style.display === 'flex') {
-      closePopup();
-    }
-  });
-
-  // Chiudi popup cliccando fuori
-  popup.addEventListener('click', e => {
-    if (e.target === popup) closePopup();
-  });
-
-  // Clic sui rami
+  // Clic sui rami: apre direttamente il link
   branches.forEach(branch => {
     branch.addEventListener('click', () => {
-      const materia = branch.dataset.materia;
       const url = branch.dataset.url;
-      popupTitle.textContent = materia;
-      popupMessage.textContent = '';
-      popupLink.href = url || '#';
-      popupLink.style.display = url ? 'inline-block' : 'none';
-      showPopup();
+      if (url) {
+        window.location.href = url;
+      }
     });
   });
 });
