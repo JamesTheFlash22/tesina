@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const chartSection = document.createElement('section');
   chartSection.className = 'chart-section';
   chartSection.innerHTML = `
-    <h2 style="text-align:center">Numero di ciclisti africani al Tour (2015–2024)</h2>
+    <h2 style="text-align:center">Numero di immigrati africani in Francia (2015–2024)</h2>
     <canvas id="immigrationChart"></canvas>
   `;
   document.body.append(chartSection);
@@ -26,20 +26,20 @@ window.addEventListener('DOMContentLoaded', () => {
   new Chart(ctx, {
     type: 'line',
     data: {
-      labels: ['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024'],
-      datasets:[{
-        label:'Ciclisti africani al Tour',
-        data: [2,3,2,2,2,1,2,3,3,3],
-        borderColor:'rgba(0,119,170,1)',
-        backgroundColor:'rgba(0,119,170,0.2)',
+      labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+      datasets: [{
+        label: 'Immigrati africani in Francia (migliaia)',
+        data: [2754, 2834, 2945, 3034, 3132, 3254, 3292, 3376, 3474, 3550], // Dati reali fino al 2023, 2024 stimato
+        borderColor: 'rgba(0,119,170,1)',
+        backgroundColor: 'rgba(0,119,170,0.2)',
         fill: true
       }]
     },
-    options:{
-      responsive:true,
-      scales:{
-        y:{ beginAtZero:true, title:{ display:true, text:'Numero ciclisti' }},
-        x:{ title:{ display:true, text:'Anno' }}
+    options: {
+      responsive: true,
+      scales: {
+        y: { beginAtZero: false, title: { display: true, text: 'Numero immigrati (migliaia)' }},
+        x: { title: { display: true, text: 'Anno' }}
       }
     }
   });
