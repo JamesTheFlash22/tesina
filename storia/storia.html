@@ -5,17 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Curiosità Guerra Fredda</title>
   <link rel="stylesheet" href="storia.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <button class="home-button" onclick="window.location.href='../index.html'">Home</button>
 
   <nav class="nav-buttons">
+    <button onclick="scrollToSection('grafico')">Grafico</button>
     <button onclick="scrollToSection('propaganda')">Propaganda</button>
     <button onclick="scrollToSection('spie')">Spie</button>
     <button onclick="scrollToSection('timeline')">Timeline</button>
   </nav>
 
   <main>
+    <section id="grafico" class="fade-in">
+      <h2>Numero di Paesi Partecipanti alle Olimpiadi per Anno</h2>
+      <canvas id="grafico-partecipanti" width="800" height="400"></canvas>
+    </section>
+
     <section id="propaganda" class="fade-in">
       <h2>Propaganda e Simboli nelle Olimpiadi</h2>
       <p>
@@ -56,6 +63,9 @@
     </section>
   </main>
 
+  <div id="timeline-popup" class="timeline-popup hidden"></div>
+
   <script src="storia.js"></script>
+  <script src="storia_grafico.js"></script>
 </body>
 </html>

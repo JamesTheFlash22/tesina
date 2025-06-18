@@ -57,9 +57,27 @@ h2 {
   margin-bottom: 12px;
 }
 
+h3 {
+  font-size: 1.4rem;
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
 p {
   line-height: 1.6;
   font-size: 1.05rem;
+}
+
+#grafico {
+  text-align: center;
+}
+
+#grafico canvas {
+  max-width: 100%;
+  background: #222;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 10px #ff4081aa;
 }
 
 .timeline {
