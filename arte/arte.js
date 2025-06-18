@@ -22,7 +22,7 @@ function showSlide(index) {
   slides.forEach(slide => slide.classList.remove('active'));
   slides[index].classList.add('active');
 
-  const text = slides[index].getAttribute('data-text');
+  const text = slides[index].getAttribute('data-text') || 'Immagine senza descrizione';
   caption.textContent = text;
 
   const dots = document.querySelectorAll('.dot');
@@ -69,7 +69,7 @@ const futurismEvents = [
     year: '1914',
     title: 'Espansione del Futurismo in Europa',
     description: 'Il Futurismo si diffonde oltre l’Italia, influenzando artisti e movimenti in tutta Europa, contribuendo alla nascita di avanguardie come il Cubismo sintetico e l’Espressionismo.',
-    image: 'images/futurismo_europa_1914.jpg',
+    image: 'images/futurismo_europa_1914.png',
     alt: 'Diffusione del Futurismo in Europa'
   },
   {
