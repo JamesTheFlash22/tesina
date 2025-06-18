@@ -30,7 +30,13 @@ header h1 {
     color: #FBBF24;
     margin-bottom: 15px;
 }
-
+.home-btn {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    z-index: 1000;
+    margin: 0;
+}
 .home-btn {
     display: inline-block;
     padding: 10px 25px;

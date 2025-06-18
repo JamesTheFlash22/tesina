@@ -54,5 +54,5 @@ function showFact() {
   }, 600);
 }
 
-setInterval(showFact, 8000);
+setInterval(showFact, 6000);
 showFact();
