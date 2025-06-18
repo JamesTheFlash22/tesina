@@ -41,7 +41,7 @@ new Chart(ctx, {
         datasets: [{
             label: "Paesi partecipanti",
             data: datiPartecipanti.map(d => d.paesi),
-            borderColor: "#ff4081", // Colore in linea con il tema di storia.css
+            borderColor: "#ff4081",
             backgroundColor: "rgba(255, 64, 129, 0.2)",
             fill: true,
             tension: 0.4
@@ -50,7 +50,24 @@ new Chart(ctx, {
     options: {
         responsive: true,
         scales: {
-            y: { beginAtZero: true }
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: "#ffffff" // Imposta il colore delle etichette dell'asse Y su bianco
+                }
+            },
+            x: {
+                ticks: {
+                    color: "#ffffff" // Imposta il colore delle etichette dell'asse X su bianco
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    color: "#ffffff" // Imposta il colore della legenda su bianco
+                }
+            }
         }
     }
 });
